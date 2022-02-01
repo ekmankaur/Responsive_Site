@@ -17,13 +17,13 @@ a{
 }
 
 #main-header{
-    margin-top: 20px;
-        height: 60px;
-        align-items: center;
-        padding: 0px 20px;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+    margin: 20px 0;
+    height: 4rem;
+    align-items: center;
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #main-header ul{
@@ -33,7 +33,7 @@ a{
 #logo{
     /* padding: 10px; */
     color: rgb(156, 140, 109);
-    font-size: 50px;
+    font-size: 3em;
     font-weight: bold;
     text-decoration: none;
     text-shadow: 1px 1px 3px rgb(68, 67, 67);
@@ -41,18 +41,76 @@ a{
     border-radius: 8px;
 }
 
+.navBtn{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    display: none;
+}
+
+.navBtn span{
+    width: 100%;
+    height: 3px;
+    background-color: rgb(156, 140, 109);
+}
+
+
 #main-header li a{
     color: #9C8C6D;
-    font-size: 22px;
+    font-size: 1.5em;
     text-shadow: 1px 1px 1px rgb(68, 67, 67);
     padding: 5px;
-    margin: 0 12px;
+    margin: 0 1rem;
 }
 
 #main-header nav a:hover{
     color: white;
     background-color: rgb(158, 147, 132);
     border-radius: 8px;
+}
+
+#sideDrawer{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(29, 26 ,27);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#sideDrawer:target{
+    display: block;  
+}
+
+#sideDrawer header{
+    margin: 20px 0;
+    height: 4rem;
+    align-items: center;
+    padding: 0px 5%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#sideDrawer ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 4rem 1rem;
+}
+
+#sideDrawer li{
+    margin: 1.5rem 0;
+}
+
+#sideDrawer a{
+    color: rgb(158, 147, 132);
+    font-weight: bold;
+    font-size: 2.5rem;
 }
 
 /* main title */
@@ -68,23 +126,27 @@ main h1{
     width: 50%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 1rem;
 
 }
 
 .clothing-items{
     background-color: rgb(158, 147, 132);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .clothing-items img{
-    height: 275px;
+    height: 15rem;
     width: 100%;
+    object-fit: cover;
+
 }
 
 
 .clothing-item-content{
     text-align: center;
-    margin: 20px 20px;
+    margin: 1.5rem 1.5rem;
 }
 
 .clothing-item-content h3{
@@ -93,10 +155,51 @@ main h1{
 
 .btn{
     background-color: rgb(202, 188, 161, 0.5);
-    padding: 14px 15px;
+    padding: .75rem 1rem;
     border-radius: 8px;
     color: white;
 }
 .btn:hover{
     color: black;
 }
+
+/* media query */
+@media(max-width: 60rem){
+    main h1{
+        font-size: 1.5rem;
+    }
+    
+    #main-header li a{
+        visibility: hidden;
+    }
+    
+    .navBtn{
+        display: flex;
+    }
+
+    #latest-products ul{
+        grid-template-columns: 1fr;
+       
+    }
+
+
+
+}
+
+
+
+/*certain width and less => max*/
+/*certain width and more => min*/
+/*media query must be at the bottom of the page (best practice) mainly due to the cascading nature
+of css*/
+
+
+/*HAMBURGER THEORY 
+
+Create clickable hamburger button in the mobile view
+Open side drawer on first button click
+Close side drawer on second button click
+
+Internal links: adds defined ID to URL
+The target selector: activates CSS rules if defined ID is selected in URL
+*/
